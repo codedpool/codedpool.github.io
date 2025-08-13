@@ -1,9 +1,18 @@
 
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 
 export default function Hero() {
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="min-h-screen bg-black text-white relative overflow-hidden">
       {/* Navigation */}
@@ -22,26 +31,31 @@ export default function Hero() {
         </div>
         
         <div className="hidden md:flex items-center space-x-8 text-sm">
-          <Link href="#projects" className="hover:text-gray-300 transition-colors">
+          <button 
+            onClick={() => scrollToSection('projects')} 
+            className="hover:text-gray-300 transition-colors cursor-pointer"
+          >
             Projects
-          </Link>
-          <Link href="#about" className="hover:text-gray-300 transition-colors">
+          </button>
+          <button 
+            onClick={() => scrollToSection('about')} 
+            className="hover:text-gray-300 transition-colors cursor-pointer"
+          >
             About me
-          </Link>
+          </button>
           {/* <Link href="#blog" className="hover:text-gray-300 transition-colors">
             Blog
           </Link> */}
           {/* <Link href="#faq" className="hover:text-gray-300 transition-colors">
             FAQ
           </Link> */}
-          <Link href="#contact" passHref>
-            <Button 
-              variant="secondary"
-              className="bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-md"
-            >
-              Contact me
-            </Button>
-          </Link>
+          <Button 
+            variant="secondary"
+            className="bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-md"
+            onClick={() => scrollToSection('contact')}
+          >
+            Contact me
+          </Button>
         </div>
       </nav>
 
@@ -67,12 +81,14 @@ export default function Hero() {
               <Button 
                 variant="secondary" 
                 className="bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-md"
+                onClick={() => scrollToSection('contact')}
               >
                 Contact me
               </Button>
               <Button 
                 variant="ghost" 
                 className="text-white border border-gray-600 hover:bg-gray-800 px-6 py-3 rounded-md"
+                onClick={() => scrollToSection('projects')}
               >
                 View projects
               </Button>

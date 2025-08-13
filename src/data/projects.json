@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "title": "HomeyHotel",
+    "description": "Book a stay at our cozy hotel, enjoy the comfort, and feel at home.",
+    "image": "/project1.png",
+    "demoUrl": "#",
+    "codeUrl": "#",
+    "technologies": ["Next.js", "React", "Tailwind CSS"]
+  },
+  {
+    "id": 2,
+    "title": "Streamify",
+    "description": "Discover the best video content on our streaming platform tailored to your needs.",
+    "image": "/project2.png",
+    "demoUrl": "#",
+    "codeUrl": "#",
+    "technologies": ["React", "Node.js", "MongoDB"]
+  },
+  {
+    "id": 3,
+    "title": "StreamFlix",
+    "description": "Your favorite platform for watching movies and series in top quality.",
+    "image": "/project3.png",
+    "demoUrl": "#",
+    "codeUrl": "#",
+    "technologies": ["Next.js", "TypeScript", "Prisma"]
+  }
+]
