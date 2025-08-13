@@ -88,9 +88,9 @@ export default function Hero() {
               <Button 
                 variant="ghost" 
                 className="text-white border border-gray-600 hover:bg-gray-800 px-6 py-3 rounded-md"
-                onClick={() => scrollToSection('projects')}
+                asChild
               >
-                View projects
+                <a href={process.env.NEXT_PUBLIC_RESUME_URL} target="_blank" rel="noopener noreferrer">View Resume</a>
               </Button>
             </div>
           </div>

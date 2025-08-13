@@ -64,8 +64,8 @@ export default function Projects() {
                   </Button>
                   <Button
                     size="sm"
-                    variant="outline"
-                    className="border-white text-white hover:bg-white hover:text-black"
+                    variant="secondary"
+                    className="bg-white text-black hover:bg-gray-200"
                     asChild
                   >
                     <a href={project.codeUrl} target="_blank" rel="noopener noreferrer">
@@ -104,10 +104,11 @@ export default function Projects() {
         {/* View All Projects Button */}
         <div className="text-center">
           <Button
+            asChild
             variant="secondary"
             className="bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-md"
           >
-            View All Projects
+            <a href="/all-projects">View All Projects</a>
           </Button>
         </div>
       </div>
