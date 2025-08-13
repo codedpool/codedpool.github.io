@@ -4,7 +4,7 @@ export default function Contact() {
   return (
     <section className="min-h-screen bg-black text-white py-20 px-6">
       <div className="container mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
           {/* Left Content */}
           <div className="space-y-8">
             <div>
@@ -21,22 +21,13 @@ export default function Contact() {
 
           {/* Right Content - Contact Information Card */}
           <div
-            className="border border-gray-800 rounded-xl"
+            className="border border-gray-800 rounded-xl p-6 sm:p-12 w-full max-w-lg mx-auto"
             style={{
-              width: 592,
-              height: 360,
-              gap: 48,
-              opacity: 1,
-              borderWidth: '1px',
-              borderRadius: '24px',
-              paddingTop: '2rem',
-              paddingBottom: '2rem',
-              paddingLeft: '3rem',
-              paddingRight: '3rem',
-              background: 'linear-gradient(0deg, var(--base-muted, #262626), var(--base-muted, #262626)), linear-gradient(0deg, var(--alpha-40, rgba(10, 10, 10, 0.6)), var(--alpha-40, rgba(10, 10, 10, 0.6)))'
+              background: 'linear-gradient(0deg, var(--base-muted, #262626), var(--base-muted, #262626)), linear-gradient(0deg, var(--alpha-40, rgba(10, 10, 10, 0.6)), var(--alpha-40, rgba(10, 10, 10, 0.6)))',
+              opacity: 1
             }}
           >
-            <div className="space-y-6 h-full flex flex-col justify-center">
+            <div className="flex flex-col justify-between h-full gap-6">
               {/* Phone */}
               <div className="flex items-start space-x-4">
                 <div className="w-6 h-6 flex items-center justify-center mt-1">
