@@ -1,7 +1,14 @@
+"use client";
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 
 export default function About() {
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   return (
     <section id="about" className="min-h-screen bg-black text-white py-20 px-6">
       <div className="container mx-auto">
@@ -49,12 +56,14 @@ export default function About() {
               <Button 
                 variant="secondary" 
                 className="bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-md"
+                onClick={() => scrollToSection('contact')}
               >
                 Contact me
               </Button>
               <Button 
                 variant="ghost" 
                 className="text-white border border-gray-600 hover:bg-gray-800 px-6 py-3 rounded-md"
+                onClick={() => scrollToSection('projects')}
               >
                 View projects
               </Button>
