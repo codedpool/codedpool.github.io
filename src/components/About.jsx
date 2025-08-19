@@ -10,7 +10,7 @@ export default function About() {
     }
   };
   return (
-    <section id="about" className="min-h-screen bg-black text-white py-20 px-6">
+    <section id="about" className="bg-black text-white py-12 px-6">
       <div className="container mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content - Portrait */}
