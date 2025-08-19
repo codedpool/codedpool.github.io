@@ -260,9 +260,9 @@ export default function ProjectDetailsPage() {
                 {projects
                   .filter(p => p.id !== project.id && p.category === project.category)
                   .slice(0, 3)
-                  .map((relatedProject) => (
+                  .map((relatedProject, idx) => (
                     <Link
-                      key={relatedProject.id}
+                      key={`${relatedProject.id}-${idx}`}
                       href={`/projects/${relatedProject.id}`}
                       className="block p-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors"
                     >

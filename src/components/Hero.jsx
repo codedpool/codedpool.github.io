@@ -67,13 +67,11 @@ export default function Hero() {
             <div>
               <p className="text-2xl md:text-4xl font-light italic mb-4" style={{ fontFamily: 'Kaushan Script, cursive' }}>Romanch Roshan Singh</p>
               <h1 className="text-4xl md:text-6xl font-light leading-tight mb-6">
-                Your go-to engineer<br />
-                for Next.js projects
+                Your All-Roundr<br />
+                Problem Solver
               </h1>
               <p className="text-gray-300 text-lg leading-relaxed max-w-md">
-                Bringing your ideas to life with clean, efficient, and scalable code. 
-                Whether it's building web apps, optimizing performance, or solving 
-                complex technical challenges.
+                From front-end polish to backend logic, I turn ideas into scalable, real-world solutions—learning fast and building faster.
               </p>
             </div>
             

@@ -32,9 +32,9 @@ export default function ProjectList() {
 
       {/* Projects Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-        {projects.map((project) => (
+        {projects.map((project, idx) => (
           <Link
-            key={project.id}
+            key={`${project.id}-${idx}`}
             href={`/projects/${project.id}`}
             className="group bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-gray-600 transition-all duration-300 cursor-pointer"
           >

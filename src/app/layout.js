@@ -14,7 +14,13 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Romanch Roshan Singh",
   description: "Romanch's Portfolio",
+  icons: {
+    icon: '/portfolio.png',
+    shortcut: '/portfolio.png',
+    apple: '/portfolio.png',
+  },
 };
+
 
 export default function RootLayout({ children }) {
   return (

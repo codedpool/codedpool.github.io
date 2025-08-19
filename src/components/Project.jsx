@@ -6,35 +6,45 @@ import { Button } from '@/components/ui/button'
 import { ExternalLink, Github } from 'lucide-react'
 import projects from '@/data/projects.json';
 
-export default function Projects() {
+export default function Projects({ showAll = false }) {
   const [displayedProjects, setDisplayedProjects] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
-  const projectsPerLoad = 3; // Show 3 projects initially, then 2 more each time
+  const projectsPerLoad = 3; // Show 3 projects initially
 
   // Load initial projects
   useEffect(() => {
-    loadMoreProjects();
-  }, []);
+    if (showAll) {
+      // when showing all, load everything immediately
+      setDisplayedProjects(projects);
+      setCurrentIndex(projects.length);
+      return;
+    }
+
+    // otherwise load only the initial slice
+    const initial = projects.slice(0, projectsPerLoad);
+    setDisplayedProjects(initial);
+    setCurrentIndex(initial.length);
+  }, [showAll]);
 
   const loadMoreProjects = () => {
     if (isLoading || currentIndex >= projects.length) return;
-    
     setIsLoading(true);
-    
+
     // Simulate loading delay for better UX
     setTimeout(() => {
       const nextProjects = projects.slice(currentIndex, currentIndex + projectsPerLoad);
       setDisplayedProjects(prev => [...prev, ...nextProjects]);
-      setCurrentIndex(prev => prev + projectsPerLoad);
+      setCurrentIndex(prev => prev + nextProjects.length);
       setIsLoading(false);
     }, 500);
   };
 
-  // Infinite scroll handler
+  // Infinite scroll handler - only when showAll is true
   useEffect(() => {
+    if (!showAll) return;
+
     const handleScroll = () => {
-      // trigger when user is within 250px of the bottom
       const nearBottom = window.innerHeight + window.scrollY >= document.documentElement.offsetHeight - 250;
       if (nearBottom && !isLoading) {
         loadMoreProjects();
@@ -43,7 +53,7 @@ export default function Projects() {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [currentIndex, isLoading]);
+  }, [currentIndex, isLoading, showAll]);
 
   function ImageWithFallback({ id, alt, image }) {
     const initial = image ? `/${image}` : `/${id}.png`;
@@ -82,9 +92,9 @@ export default function Projects() {
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {displayedProjects.map((project) => (
+          {displayedProjects.map((project, idx) => (
             <Link
-              key={project.id}
+              key={`${project.id}-${idx}`}
               href={`/projects/${project.id}`}
               className="group bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-gray-600 transition-all duration-300 cursor-pointer"
             >

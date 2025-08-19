@@ -2,7 +2,7 @@ import { Phone, Mail, Linkedin, Github } from 'lucide-react'
 
 export default function Contact() {
   return (
-    <section id="contact" className="min-h-screen bg-black text-white py-20 px-6">
+  <section id="contact" className="bg-black text-white py-12 px-6">
       <div className="container mx-auto">
   <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
           {/* Left Content */}

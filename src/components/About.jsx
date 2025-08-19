@@ -16,9 +16,6 @@ export default function About() {
           {/* Left Content - Portrait */}
           <div className="relative order-2 lg:order-1">
 
-            
-            
-            
             {/* Portrait Image */}
             <div className="relative z-10 flex justify-center">
               <Image
@@ -42,12 +39,10 @@ export default function About() {
               </h1>
               <div className="space-y-4 text-gray-300 text-lg leading-relaxed">
                 <p>
-                  Hello! I'm Alicia Smith, a passionate web developer who thrives on creating 
-                  innovative solutions that tackle complex user challenges.
+                  Hey! I&apos;m Romanch, a developer who loves turning ideas into impactful products. I enjoy building applications that don&apos;t just work, but actually solve real problems.
                 </p>
                 <p>
-                  My attention to detail allows me to enhance every interaction, ensuring it not 
-                  only boosts productivity but also elevates user satisfaction.
+                  I&apos;m always up for amazing projects—whether it&apos;s designing clean, user-friendly interfaces, scaling backend systems, or experimenting with new technologies. I pick things up fast, adapt quickly, and bring energy and precision to every line of code I write.
                 </p>
               </div>
             </div>
@@ -71,8 +66,6 @@ export default function About() {
           </div>
         </div>
       </div>
-
-      
     </section>
   )
 }
