@@ -1,29 +1,178 @@
 [
   {
-    "id": 1,
-    "title": "HomeyHotel",
-    "description": "Book a stay at our cozy hotel, enjoy the comfort, and feel at home.",
-    "image": "/project1.png",
-    "demoUrl": "#",
-    "codeUrl": "#",
-    "technologies": ["Next.js", "React", "Tailwind CSS"]
+    "id": "wealthwise",
+    "title": "WealthWise",
+    "description": "A comprehensive investment management platform designed to help users track, analyze, and optimize their investments in mutual funds, cryptocurrencies, and other financial instruments. Built during CodeZen with AI-driven insights and real-time data.",
+    "shortDescription": "AI-powered investment management platform for tracking mutual funds and crypto with real-time insights.",
+    "demoUrl": "https://wealthwise-demo.vercel.app",
+    "codeUrl": "https://github.com/codedpool/wealthwise",
+    "technologies": ["React", "FastAPI", "MongoDB", "AI/ML", "TailwindCSS"],
+    "category": "FinTech",
+    "featured": true,
+    "features": [
+      "Mutual Fund Dashboard: Track and analyze mutual funds with historical NAV, risk assessment, and Monte Carlo predictions.",
+      "Cryptocurrency Dashboard: Real-time crypto price tracking, risk analysis, and AI-driven insights.",
+      "Portfolio Management: Add, remove, and track investments in mutual funds and cryptocurrencies.",
+      "AI-Powered Insights: Get AI-generated analysis and reports for your investments.",
+      "Education Hub: Curated videos and trending financial news.",
+      "Authentication: Secure login and user management via Auth0."
+    ],
+    "techStack": {
+      "frontend": ["React", "Vite", "TailwindCSS", "Framer Motion", "Recharts", "Plotly.js"],
+      "backend": ["FastAPI", "MongoDB", "Python (mftool, pandas, numpy)"],
+      "aiIntegration": ["Groq API (Llama 3.3-70b)"],
+      "authentication": ["Auth0"]
+    }
   },
   {
-    "id": 2,
-    "title": "Streamify",
-    "description": "Discover the best video content on our streaming platform tailored to your needs.",
-    "image": "/project2.png",
-    "demoUrl": "#",
-    "codeUrl": "#",
-    "technologies": ["React", "Node.js", "MongoDB"]
+    "id": "fundhive",
+    "title": "FundHive",
+    "description": "A social media-inspired crowdfunding and investment platform where entrepreneurs pitch startup ideas, verified by Aadhaar/PAN, and connect with investors or crowdfunders for equity or rewards.",
+    "shortDescription": "Social crowdfunding platform connecting entrepreneurs with investors through verified pitches.",
+    "demoUrl": "https://fundhive-demo.vercel.app",
+    "codeUrl": "https://github.com/codedpool/fundhive",
+    "technologies": ["React", "Node.js", "MongoDB","AI", "AWS S3", "Auth0"],
+    "category": "FinTech",
+    "featured": true,
+    "features": [
+  "AI Insights: Groq-powered business viability score and analysis report.",
+  "Project Creation: Multi-step form to post startup ideas with details and media uploads.",
+  "Identity Verification: Aadhaar upload and PAN card input for creators.",
+  "Funding Options: Reward-based crowdfunding and equity investments with escrow system.",
+  "Negotiation: Custom amount/equity proposals with creator approval.",
+  "Social Engagement: Like, comment, and share projects in a dynamic feed.",
+  "Profile Management: Track investments, created projects, and negotiations.",
+  "Search & Filters: Browse projects by category, keyword, or trending status.",
+  "Notifications: Alerts for milestones and funding goal achievements.",
+  "Security: Auth0 authentication, AWS S3 for media uploads, and blockchain-simulated escrow."
+    ],
+    "techStack": {
+      "frontend": ["React.js", "Vite", "TailwindCSS", "Auth0", "Lucide React"],
+      "backend": ["Node.js", "Express.js", "MongoDB with Mongoose", "AWS S3", "Groq SDK", "Multer"],
+      "deployment": ["Vercel"],
+      "other": ["REST API", "SHA-256 blockchain simulation"]
+    }
   },
   {
-    "id": 3,
-    "title": "StreamFlix",
-    "description": "Your favorite platform for watching movies and series in top quality.",
-    "image": "/project3.png",
-    "demoUrl": "#",
-    "codeUrl": "#",
-    "technologies": ["Next.js", "TypeScript", "Prisma"]
+    "id": "codev",
+    "title": "Codev",
+    "description": "A collaborative code editor with AI-powered assistance, real-time collaboration, file management, and multi-language execution support.",
+    "shortDescription": "Real-time collaborative code editor with AI assistance and multi-language execution.",
+    "demoUrl": "https://codev-editor.vercel.app",
+    "codeUrl": "https://github.com/codedpool/codev",
+    "technologies": ["React", "Node.js", "Socket.IO","AI", "MongoDB"],
+    "category": "Developer Tools",
+    "featured": false,
+    "features": [
+      "AI-Powered Assistance: Code completions, linting suggestions, and documentation generation.",
+      "File Management: Create, read, update, and delete project files.",
+      "Code Execution: Run code in multiple languages using JDoodle API.",
+      "Project Management: Create, list, and delete projects.",
+      "Real-Time Collaboration: Work with others via WebSockets.",
+      "Cloud Storage: Persistent storage with AWS S3.",
+      "Authentication: Secure login with Auth0."
+    ],
+    "techStack": {
+      "frontend": ["React.js", "Vite", "Material-UI", "CodeMirror", "Auth0"],
+      "backend": ["Node.js", "Express.js", "MongoDB with Mongoose", "AWS SDK", "JDoodle API", "Groq SDK", "Socket.IO"],
+      "other": ["Auth0 authentication", "Axios for API calls"]
+    }
+  },
+  {
+    "id": "mass-mail-sender",
+    "title": "Mass Mail Sender",
+  "image": "mailer.png",
+    "description": "A web application for sending personalized bulk emails with scheduling, tracking, and GDPR compliance features.",
+    "shortDescription": "GDPR-compliant bulk email platform with personalization and tracking capabilities.",
+    "demoUrl": "https://mass-mail-sender.vercel.app",
+    "codeUrl": "https://github.com/codedpool/mailer",
+    "technologies": ["React", "Node.js", "MongoDB", "Nodemailer"],
+    "category": "Marketing Tools",
+    "featured": false,
+    "features": [
+      "Personalized Emails: Tags like {{name}} and {{email}} for dynamic content.",
+      "Email Formats: Supports plain text, HTML, and Markdown.",
+      "Scheduling: Send emails at specific dates and times.",
+      "Tracking: Monitor open rates and click-through rates.",
+      "Batch Sending: Ensures compliance with service provider limits.",
+      "GDPR Compliance: Includes opt-out links and consent mechanisms.",
+      "Data Retention: Auto-deletes old campaigns and recipient data.",
+      "User Campaigns: Users manage only their campaigns."
+    ],
+    "techStack": {
+      "frontend": ["React", "Vite", "Auth0"],
+      "backend": ["Node.js", "Express.js", "MongoDB", "Nodemailer", "Agenda"],
+      "other": ["Multer (file uploads)", "CSV Parser", "Dotenv"]
+    }
   }
+  ,
+  {
+    "id": "authentitest",
+    "title": "AuthentiTest",
+    "description": "AuthentiTest is a comprehensive online examination platform designed to ensure academic integrity through advanced face detection and plagiarism checks. The application leverages AWS Rekognition for real-time face verification, Groq API for AI-generated content and plagiarism analysis, and integrates seamlessly with MongoDB for data persistence.",
+    "shortDescription": "Online exam platform with real-time face verification and AI/plagiarism detection.",
+    "demoUrl": "https://authentitest-demo.vercel.app",
+    "codeUrl": "https://github.com/codedpool/authentitest",
+    "technologies": ["React", "Node.js", "MongoDB","AI", "AWS Rekognition", "Groq API", "Socket.IO"],
+    "category": "EdTech",
+    "featured": false,
+    "features": [
+  "Plagiarism & AI Detection: Analyze submitted answers to detect AI-generated content and plagiarism using Groq API.",
+  "User Authentication: Secure registration and login for both teachers and students.",
+  "Real-Time Face Detection: Continuous face scanning during exams to prevent impersonation using AWS Rekognition.",
+  "Dynamic Test Management: Teachers can create, assign, and manage tests; students can view assigned tests and submit answers.",
+  "Responsive UI: Built with React and Tailwind CSS for an intuitive user experience.",
+  "Socket.IO Integration: Real-time alerts and notifications for enhanced interactivity."
+    ],
+    "prerequisites": [
+      "Node.js (v18 or higher)",
+      "npm or yarn",
+      "MongoDB instance",
+      "AWS account with Rekognition access",
+      "Groq API key"
+    ],
+    "techStack": {
+      "frontend": ["React", "TailwindCSS"],
+      "backend": ["Node.js", "Express.js", "Socket.IO", "MongoDB"],
+      "aiIntegration": ["Groq API"],
+      "vision": ["AWS Rekognition"],
+      "authentication": ["JWT", "Auth0 (optional)"]
+    }
+  }
+    ,
+    {
+      "id": "trendora",
+      "title": "Trendora",
+      "image": "trendora.png",
+      "description": "Trendora is a full-stack e-commerce application that lets users browse, purchase, and manage products with a smooth, responsive UI and a powerful admin dashboard.",
+      "shortDescription": "Full-stack e-commerce app with product management, cart, checkout and admin dashboard.",
+      "demoUrl": "https://trendora-demo.vercel.app",
+      "codeUrl": "https://github.com/codedpool/trendora",
+      "technologies": ["React", "Node.js", "MongoDB", "TailwindCSS", "Cloudinary"],
+      "category": "E-commerce",
+      "featured": false,
+      "features": [
+        "User Authentication: Register, login, and profile management.",
+        "Product Browsing: Filter and sort products by category, price, brand, etc.",
+        "Shopping Cart: Add/remove products, update quantities, and view cart summary.",
+        "Checkout Process: Secure payments via PayPal or Cash on Delivery (COD).",
+        "Order Tracking: View order history and order details.",
+        "Responsive Design: Mobile-first UI with Tailwind CSS.",
+        "Chatbot Support: Predefined FAQs for quick customer support.",
+        "Admin Dashboard: Manage users, products, and orders with image uploads via Cloudinary."
+      ],
+      "prerequisites": [
+        "Node.js (v18+)",
+        "npm or yarn",
+        "MongoDB instance",
+        "Cloudinary account (for image uploads)",
+        "PayPal sandbox credentials (for testing payments)"
+      ],
+      "techStack": {
+        "frontend": ["React.js (Vite)", "TailwindCSS", "Redux Toolkit", "React Router", "Axios"],
+        "backend": ["Node.js", "Express.js", "MongoDB with Mongoose", "JWT", "Multer", "Cloudinary"],
+        "payments": ["PayPal React SDK"],
+        "other": ["ESLint", "CORS", "dotenv"]
+      }
+    }
 ]

@@ -1,9 +1,69 @@
-import Image from 'next/image'
+"use client";
+
+import { useState, useEffect } from 'react';
+import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { ExternalLink, Github } from 'lucide-react'
 import projects from '@/data/projects.json';
 
 export default function Projects() {
+  const [displayedProjects, setDisplayedProjects] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
+  const projectsPerLoad = 3; // Show 3 projects initially, then 2 more each time
+
+  // Load initial projects
+  useEffect(() => {
+    loadMoreProjects();
+  }, []);
+
+  const loadMoreProjects = () => {
+    if (isLoading || currentIndex >= projects.length) return;
+    
+    setIsLoading(true);
+    
+    // Simulate loading delay for better UX
+    setTimeout(() => {
+      const nextProjects = projects.slice(currentIndex, currentIndex + projectsPerLoad);
+      setDisplayedProjects(prev => [...prev, ...nextProjects]);
+      setCurrentIndex(prev => prev + projectsPerLoad);
+      setIsLoading(false);
+    }, 500);
+  };
+
+  // Infinite scroll handler
+  useEffect(() => {
+    const handleScroll = () => {
+      // trigger when user is within 250px of the bottom
+      const nearBottom = window.innerHeight + window.scrollY >= document.documentElement.offsetHeight - 250;
+      if (nearBottom && !isLoading) {
+        loadMoreProjects();
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [currentIndex, isLoading]);
+
+  function ImageWithFallback({ id, alt, image }) {
+    const initial = image ? `/${image}` : `/${id}.png`;
+    const [src, setSrc] = useState(initial);
+
+    const handleError = () => {
+  if (src.endsWith('.png')) setSrc(image ? `/${id}.png` : `/${id}.svg`);
+  else if (src.endsWith('.svg')) setSrc('/portfolio.png');
+      else setSrc('/portfolio.png');
+    };
+
+    return (
+      <img
+        src={src}
+        alt={alt}
+        onError={handleError}
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+    );
+  }
 
   return (
     <section id="projects" className="min-h-screen bg-black text-white py-20 px-6">
@@ -22,10 +82,11 @@ export default function Projects() {
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {projects.map((project) => (
-            <div
+          {displayedProjects.map((project) => (
+            <Link
               key={project.id}
-              className="group bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-gray-600 transition-all duration-300"
+              href={`/projects/${project.id}`}
+              className="group bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-gray-600 transition-all duration-300 cursor-pointer"
             >
               {/* Project Image */}
               <div className="relative h-48 bg-gray-800 overflow-hidden">
@@ -48,41 +109,54 @@ export default function Projects() {
                     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-gray-500 rounded-full opacity-80" />
                   </div>
                 </div>
-                
+                {/* project image */}
+                <ImageWithFallback id={project.id} alt={project.title} image={project.image} />
+
                 {/* Hover overlay */}
                 <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
                   <Button
                     size="sm"
                     variant="secondary"
                     className="bg-white text-black hover:bg-gray-200"
-                    asChild
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      window.open(project.demoUrl, '_blank');
+                    }}
                   >
-                    <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      Demo
-                    </a>
+                    <ExternalLink className="w-4 h-4 mr-2" />
+                    Demo
                   </Button>
                   <Button
                     size="sm"
                     variant="secondary"
                     className="bg-white text-black hover:bg-gray-200"
-                    asChild
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      window.open(project.codeUrl, '_blank');
+                    }}
                   >
-                    <a href={project.codeUrl} target="_blank" rel="noopener noreferrer">
-                      <Github className="w-4 h-4 mr-2" />
-                      Code
-                    </a>
+                    <Github className="w-4 h-4 mr-2" />
+                    Code
                   </Button>
                 </div>
               </div>
 
               {/* Project Content */}
               <div className="p-6">
-                <h3 className="text-xl font-medium text-white mb-3">
-                  {project.title}
-                </h3>
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="text-xl font-medium text-white">
+                    {project.title}
+                  </h3>
+                  {project.featured && (
+                    <span className="px-2 py-1 bg-blue-600 text-white text-xs rounded-full">
+                      Featured
+                    </span>
+                  )}
+                </div>
                 <p className="text-gray-300 text-sm leading-relaxed mb-4">
-                  {project.description}
+                  {project.shortDescription || project.description}
                 </p>
                 
                 {/* Technologies */}
@@ -97,9 +171,19 @@ export default function Projects() {
                   ))}
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
+
+        {/* Loading indicator */}
+        {isLoading && (
+          <div className="text-center mb-8">
+            <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-white"></div>
+            <p className="text-gray-400 mt-2">Loading more projects...</p>
+          </div>
+        )}
+
+  {/* Infinite scroll loads remaining projects automatically; kept "View All Projects" button below */}
 
         {/* View All Projects Button */}
         <div className="text-center">
