@@ -67,7 +67,7 @@ export default function Hero() {
             <div>
               <p className="text-2xl md:text-4xl font-light italic mb-4" style={{ fontFamily: 'Kaushan Script, cursive' }}>Romanch Roshan Singh</p>
               <h1 className="text-4xl md:text-6xl font-light leading-tight mb-6">
-                Your All-Roundr<br />
+                Your All-Rounder<br />
                 Problem Solver
               </h1>
               <p className="text-gray-300 text-lg leading-relaxed max-w-md">
